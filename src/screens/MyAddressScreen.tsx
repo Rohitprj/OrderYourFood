@@ -14,7 +14,7 @@ interface MyAddressScreenProps {
   navigation: any;
 }
 
-const MyAddressScreen: React.FC<MyAddressScreenProps> = ({navigation}) => {
+const MyAddressScreen: React.FC<MyAddressScreenProps> = ({ navigation }) => {
   const addresses = [
     {
       id: 1,
@@ -53,42 +53,33 @@ const MyAddressScreen: React.FC<MyAddressScreenProps> = ({navigation}) => {
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar barStyle="dark-content" backgroundColor="#FFFFFF" />
-      
-      {/* Status Bar */}
-      <View style={styles.statusBar}>
-        <Text style={styles.time}>9:41</Text>
-        <View style={styles.statusIcons}>
-          <View style={styles.signalBars}>
-            <View style={[styles.bar, styles.bar1]} />
-            <View style={[styles.bar, styles.bar2]} />
-            <View style={[styles.bar, styles.bar3]} />
-            <View style={[styles.bar, styles.bar4]} />
-          </View>
-          <Icon name="wifi" size={16} color="#000" />
-          <View style={styles.battery}>
-            <View style={styles.batteryLevel} />
-          </View>
-        </View>
-      </View>
-
       <View style={styles.content}>
         {/* Header */}
         <View style={styles.header}>
           <TouchableOpacity
             style={styles.backButton}
-            onPress={() => navigation.goBack()}>
+            onPress={() => navigation.goBack()}
+          >
             <Icon name="arrow-back" size={24} color="#374151" />
           </TouchableOpacity>
           <Text style={styles.headerTitle}>My Address</Text>
           <View style={styles.placeholder} />
         </View>
 
-        <ScrollView style={styles.scrollContent} showsVerticalScrollIndicator={false}>
+        <ScrollView
+          style={styles.scrollContent}
+          showsVerticalScrollIndicator={false}
+        >
           {/* Address List */}
           <View style={styles.addressList}>
             {addresses.map((address, index) => (
               <TouchableOpacity key={address.id} style={styles.addressItem}>
-                <View style={[styles.addressIcon, {backgroundColor: `${address.color}15`}]}>
+                <View
+                  style={[
+                    styles.addressIcon,
+                    { backgroundColor: `${address.color}15` },
+                  ]}
+                >
                   <Icon name={address.icon} size={20} color={address.color} />
                 </View>
                 <View style={styles.addressInfo}>
@@ -113,7 +104,10 @@ const MyAddressScreen: React.FC<MyAddressScreenProps> = ({navigation}) => {
 
         {/* Bottom Button */}
         <View style={styles.bottomSection}>
-          <TouchableOpacity style={styles.proceedButton}>
+          <TouchableOpacity
+            style={styles.proceedButton}
+            onPress={() => navigation.navigate('AddressMapScreen')}
+          >
             <Text style={styles.proceedButtonText}>PROCEED</Text>
           </TouchableOpacity>
         </View>
@@ -155,10 +149,10 @@ const styles = StyleSheet.create({
     backgroundColor: '#000000',
     borderRadius: 1,
   },
-  bar1: {height: 4},
-  bar2: {height: 6},
-  bar3: {height: 8},
-  bar4: {height: 10},
+  bar1: { height: 4 },
+  bar2: { height: 6 },
+  bar3: { height: 8 },
+  bar4: { height: 10 },
   battery: {
     width: 24,
     height: 12,
@@ -174,6 +168,7 @@ const styles = StyleSheet.create({
   },
   content: {
     flex: 1,
+    paddingTop: 8,
   },
   header: {
     flexDirection: 'row',
@@ -211,7 +206,7 @@ const styles = StyleSheet.create({
     padding: 16,
     marginBottom: 16,
     shadowColor: '#000',
-    shadowOffset: {width: 0, height: 2},
+    shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.1,
     shadowRadius: 4,
     elevation: 3,

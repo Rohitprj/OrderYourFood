@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import {
   View,
   Text,
@@ -15,9 +15,11 @@ interface AddressMapScreenProps {
   navigation: any;
 }
 
-const AddressMapScreen: React.FC<AddressMapScreenProps> = ({navigation}) => {
+const AddressMapScreen: React.FC<AddressMapScreenProps> = ({ navigation }) => {
   const [selectedLabel, setSelectedLabel] = useState('HOME');
-  const [address, setAddress] = useState('House No.37, Ghaziabad Road, Harkat Village, Uttar Nagar - 110059');
+  const [address, setAddress] = useState(
+    'House No.37, Ghaziabad Road, Harkat Village, Uttar Nagar - 110059',
+  );
   const [email, setEmail] = useState('Harkat Village');
   const [postCode, setPostCode] = useState('34567');
   const [apartment, setApartment] = useState('');
@@ -27,23 +29,6 @@ const AddressMapScreen: React.FC<AddressMapScreenProps> = ({navigation}) => {
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar barStyle="dark-content" backgroundColor="#FFFFFF" />
-      
-      {/* Status Bar */}
-      <View style={styles.statusBar}>
-        <Text style={styles.time}>9:41</Text>
-        <View style={styles.statusIcons}>
-          <View style={styles.signalBars}>
-            <View style={[styles.bar, styles.bar1]} />
-            <View style={[styles.bar, styles.bar2]} />
-            <View style={[styles.bar, styles.bar3]} />
-            <View style={[styles.bar, styles.bar4]} />
-          </View>
-          <Icon name="wifi" size={16} color="#000" />
-          <View style={styles.battery}>
-            <View style={styles.batteryLevel} />
-          </View>
-        </View>
-      </View>
 
       <View style={styles.content}>
         {/* Map Section */}
@@ -51,19 +36,19 @@ const AddressMapScreen: React.FC<AddressMapScreenProps> = ({navigation}) => {
           {/* Map Background */}
           <View style={styles.mapBackground}>
             {/* Map pins and locations */}
-            <View style={[styles.mapPin, {top: 40, left: 60}]}>
+            <View style={[styles.mapPin, { top: 40, left: 60 }]}>
               <Icon name="location-on" size={16} color="#EF4444" />
             </View>
-            <View style={[styles.mapPin, {top: 80, right: 40}]}>
+            <View style={[styles.mapPin, { top: 80, right: 40 }]}>
               <Icon name="location-on" size={16} color="#EF4444" />
             </View>
-            <View style={[styles.mapPin, {bottom: 60, left: 40}]}>
+            <View style={[styles.mapPin, { bottom: 60, left: 40 }]}>
               <Icon name="location-on" size={16} color="#EF4444" />
             </View>
-            <View style={[styles.mapPin, {bottom: 40, right: 60}]}>
+            <View style={[styles.mapPin, { bottom: 40, right: 60 }]}>
               <Icon name="location-on" size={16} color="#EF4444" />
             </View>
-            
+
             {/* Central location marker */}
             <View style={styles.centralMarker}>
               <View style={styles.markerContainer}>
@@ -76,7 +61,8 @@ const AddressMapScreen: React.FC<AddressMapScreenProps> = ({navigation}) => {
           {/* Back Button */}
           <TouchableOpacity
             style={styles.backButton}
-            onPress={() => navigation.goBack()}>
+            onPress={() => navigation.goBack()}
+          >
             <Icon name="arrow-back" size={24} color="#374151" />
           </TouchableOpacity>
         </View>
@@ -132,18 +118,21 @@ const AddressMapScreen: React.FC<AddressMapScreenProps> = ({navigation}) => {
           <View style={styles.labelContainer}>
             <Text style={styles.label}>LABEL AS</Text>
             <View style={styles.labelButtons}>
-              {labels.map((label) => (
+              {labels.map(label => (
                 <TouchableOpacity
                   key={label}
                   style={[
                     styles.labelButton,
-                    selectedLabel === label && styles.selectedLabelButton
+                    selectedLabel === label && styles.selectedLabelButton,
                   ]}
-                  onPress={() => setSelectedLabel(label)}>
-                  <Text style={[
-                    styles.labelButtonText,
-                    selectedLabel === label && styles.selectedLabelButtonText
-                  ]}>
+                  onPress={() => setSelectedLabel(label)}
+                >
+                  <Text
+                    style={[
+                      styles.labelButtonText,
+                      selectedLabel === label && styles.selectedLabelButtonText,
+                    ]}
+                  >
                     {label}
                   </Text>
                 </TouchableOpacity>
@@ -152,9 +141,10 @@ const AddressMapScreen: React.FC<AddressMapScreenProps> = ({navigation}) => {
           </View>
 
           {/* Save Button */}
-          <TouchableOpacity 
+          <TouchableOpacity
             style={styles.saveButton}
-            onPress={() => navigation.navigate('PaymentMethods')}>
+            onPress={() => navigation.navigate('PaymentMethods')}
+          >
             <Text style={styles.saveButtonText}>SAVE</Text>
           </TouchableOpacity>
         </View>
@@ -196,10 +186,10 @@ const styles = StyleSheet.create({
     backgroundColor: '#000000',
     borderRadius: 1,
   },
-  bar1: {height: 4},
-  bar2: {height: 6},
-  bar3: {height: 8},
-  bar4: {height: 10},
+  bar1: { height: 4 },
+  bar2: { height: 6 },
+  bar3: { height: 8 },
+  bar4: { height: 10 },
   battery: {
     width: 24,
     height: 12,
@@ -215,6 +205,7 @@ const styles = StyleSheet.create({
   },
   content: {
     flex: 1,
+    // marginTop: 20,
   },
   mapContainer: {
     height: 200,
@@ -236,7 +227,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     top: '50%',
     left: '50%',
-    transform: [{translateX: -75}, {translateY: -40}],
+    transform: [{ translateX: -75 }, { translateY: -40 }],
     alignItems: 'center',
   },
   markerContainer: {
@@ -269,7 +260,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     shadowColor: '#000',
-    shadowOffset: {width: 0, height: 2},
+    shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.1,
     shadowRadius: 4,
     elevation: 3,

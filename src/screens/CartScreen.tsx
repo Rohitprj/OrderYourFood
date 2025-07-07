@@ -9,6 +9,7 @@ import {
   ScrollView,
   Image,
   Modal,
+  TextInput,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
@@ -79,24 +80,6 @@ const CartScreen: React.FC<CartScreenProps> = ({ navigation }) => {
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar barStyle="dark-content" backgroundColor="#FFFFFF" />
-
-      {/* Status Bar */}
-      {/* <View style={styles.statusBar}>
-        <Text style={styles.time}>9:41</Text>
-        <View style={styles.statusIcons}>
-          <View style={styles.signalBars}>
-            <View style={[styles.bar, styles.bar1]} />
-            <View style={[styles.bar, styles.bar2]} />
-            <View style={[styles.bar, styles.bar3]} />
-            <View style={[styles.bar, styles.bar4]} />
-          </View>
-          <Icon name="wifi" size={16} color="#000" />
-          <View style={styles.battery}>
-            <View style={styles.batteryLevel} />
-          </View>
-        </View>
-      </View> */}
-
       <View style={styles.content}>
         {/* Header */}
         <View style={styles.header}>
@@ -180,7 +163,7 @@ const CartScreen: React.FC<CartScreenProps> = ({ navigation }) => {
 
           {/* Promo Codes */}
           <View style={styles.promoSection}>
-            <Text style={styles.promoTitle}>Promo Codes</Text>
+            <Text style={styles.promoTitle}>DELIVERY ADDRESS</Text>
             <TouchableOpacity style={styles.editPromoButton}>
               <Text style={styles.editPromoText}>EDIT</Text>
             </TouchableOpacity>
@@ -193,11 +176,6 @@ const CartScreen: React.FC<CartScreenProps> = ({ navigation }) => {
 
         {/* Bottom Section */}
         <View style={styles.bottomSection}>
-          <View style={styles.totalContainer}>
-            <Text style={styles.totalText}>₹ {total}</Text>
-            <Text style={styles.viewBreakdown}>View Breakdown </Text>
-          </View>
-
           <View style={styles.deliveryOptions}>
             <TouchableOpacity style={styles.deliveryOption}>
               <Text style={styles.deliveryOptionText}>HOME DELIVERY</Text>
@@ -212,12 +190,16 @@ const CartScreen: React.FC<CartScreenProps> = ({ navigation }) => {
               </Text>
             </TouchableOpacity>
           </View>
+          <View style={styles.totalContainer}>
+            <Text style={styles.totalText}>TOTAL: ₹ {total}</Text>
+            <Text style={styles.viewBreakdown}>View Breakdown </Text>
+          </View>
 
           <TouchableOpacity
             style={styles.selectAddressButton}
             onPress={handlePlaceOrder}
           >
-            <Text style={styles.selectAddressButtonText}>PLACE ORDER</Text>
+            <Text style={styles.selectAddressButtonText}>SELECT ADDRESS</Text>
           </TouchableOpacity>
         </View>
       </View>
@@ -237,10 +219,10 @@ const CartScreen: React.FC<CartScreenProps> = ({ navigation }) => {
             <Text style={styles.successTitle}>"TRYNEW" Applied</Text>
             <Text style={styles.successSubtitle}>You Saved ₹120</Text>
             <TouchableOpacity
-              style={styles.successButton}
+              style={{ ...styles.selectAddressButton, width: 260 }}
               onPress={() => setShowSuccessModal(false)}
             >
-              <Icon name="check" size={20} color="#FFFFFF" />
+              <Text style={styles.selectAddressButtonText}>Thanks</Text>
             </TouchableOpacity>
           </View>
         </View>
@@ -255,69 +237,8 @@ const CartScreen: React.FC<CartScreenProps> = ({ navigation }) => {
       >
         <View style={styles.orderModalOverlay}>
           <View style={styles.orderModal}>
-            {/* Header */}
-            <View style={styles.orderModalHeader}>
-              <TouchableOpacity
-                style={styles.orderModalBackButton}
-                onPress={() => setShowOrderModal(false)}
-              >
-                <Icon name="arrow-back" size={24} color="#374151" />
-              </TouchableOpacity>
-              <Text style={styles.orderModalTitle}>Cart</Text>
-              <TouchableOpacity style={styles.orderModalEditButton}>
-                <Text style={styles.orderModalEditText}>EDIT</Text>
-              </TouchableOpacity>
-            </View>
-
             {/* Cart Items */}
             <ScrollView style={styles.orderModalContent}>
-              {cartItems.map(item => (
-                <View key={item.id} style={styles.orderModalItem}>
-                  <Image
-                    source={{ uri: item.image }}
-                    style={styles.orderModalItemImage}
-                  />
-                  <View style={styles.orderModalItemInfo}>
-                    <Text style={styles.orderModalItemName}>{item.name}</Text>
-                    <Text style={styles.orderModalItemPrice}>
-                      ₹{item.price}
-                    </Text>
-                    <Text style={styles.orderModalItemType}>Half</Text>
-                  </View>
-                  <View style={styles.orderModalQuantity}>
-                    <TouchableOpacity style={styles.orderModalQuantityButton}>
-                      <Icon name="remove" size={16} color="#1E40AF" />
-                    </TouchableOpacity>
-                    <Text style={styles.orderModalQuantityText}>
-                      {item.quantity}
-                    </Text>
-                    <TouchableOpacity style={styles.orderModalQuantityButton}>
-                      <Icon name="add" size={16} color="#1E40AF" />
-                    </TouchableOpacity>
-                  </View>
-                </View>
-              ))}
-
-              {/* Coupons */}
-              <View style={styles.orderModalCoupons}>
-                <Text style={styles.orderModalCouponsTitle}>
-                  Coupons & Offers
-                </Text>
-                <View style={styles.orderModalCouponItem}>
-                  <View style={styles.orderModalCouponIcon}>
-                    <Icon name="local-offer" size={16} color="#1E40AF" />
-                  </View>
-                  <Text style={styles.orderModalCouponText}>
-                    Save ₹20 with "TRYNEW"
-                  </Text>
-                  <View style={styles.orderModalCouponApplied}>
-                    <Text style={styles.orderModalCouponAppliedText}>
-                      APPLIED
-                    </Text>
-                  </View>
-                </View>
-              </View>
-
               {/* Delivery Address */}
               <View style={styles.orderModalAddress}>
                 <View style={styles.orderModalAddressHeader}>
@@ -665,7 +586,7 @@ const styles = StyleSheet.create({
   successSubtitle: {
     fontSize: 24,
     fontWeight: '700',
-    color: '#1F2937',
+    color: '#1E40AF',
     marginBottom: 24,
   },
   successButton: {
@@ -686,13 +607,10 @@ const styles = StyleSheet.create({
     backgroundColor: '#FFFFFF',
     borderTopLeftRadius: 20,
     borderTopRightRadius: 20,
-    maxHeight: '90%',
+    height: '30%',
     paddingBottom: 20,
   },
   orderModalHeader: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
     paddingHorizontal: 20,
     paddingVertical: 16,
     borderBottomWidth: 1,
@@ -712,6 +630,8 @@ const styles = StyleSheet.create({
   orderModalEditButton: {
     paddingHorizontal: 12,
     paddingVertical: 6,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
   },
   orderModalEditText: {
     fontSize: 14,
@@ -866,6 +786,20 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: '600',
     color: '#FFFFFF',
+  },
+  searchContainer: {
+    alignItems: 'center',
+    backgroundColor: 'red',
+    borderRadius: 12,
+    paddingHorizontal: 16,
+    paddingVertical: 2,
+    flex: 1,
+    height: 120,
+  },
+  searchInput: {
+    flex: 1,
+    fontSize: 16,
+    color: '#1F2937',
   },
 });
 

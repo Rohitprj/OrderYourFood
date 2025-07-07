@@ -148,7 +148,7 @@ const StackNavigator = () => {
       <Stack.Screen name="MenuDetail" component={MenuDetailScreen} />
       <Stack.Screen name="Cart" component={CartScreen} />
       <Stack.Screen name="MyAddress" component={MyAddressScreen} />
-      <Stack.Screen name="AddressMap" component={AddressMapScreen} />
+      <Stack.Screen name="AddressMapScreen" component={AddressMapScreen} />
       <Stack.Screen name="PaymentMethods" component={PaymentMethodsScreen} />
       <Stack.Screen
         name="OrderConfirmation"
@@ -156,10 +156,10 @@ const StackNavigator = () => {
       />
       <Stack.Screen name="OrderDetails" component={OrderDetailsScreen} />
       <Stack.Screen
-        name="DeliveryTracking"
+        name="DeliveryTrackingScreen"
         component={DeliveryTrackingScreen}
       />
-      <Stack.Screen name="DeliveryMap" component={DeliveryMapScreen} />
+      <Stack.Screen name="DeliveryMapScreen" component={DeliveryMapScreen} />
       <Stack.Screen name="ChatScreen" component={ChatScreen} />
       <Stack.Screen name="OrderHistory" component={OrderHistoryScreen} />
       <Stack.Screen name="ProfileDetail" component={ProfileDetailScreen} />
