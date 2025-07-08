@@ -58,6 +58,7 @@ import ChatScreen from './src/screens/ChatScreen';
 import OrderHistoryScreen from './src/screens/OrderHistoryScreen';
 import PersonalInfoScreen from './src/screens/PersonalInfoScreen';
 import EditProfileScreen from './src/screens/EditProfileScreen';
+import PlaceOrderCart from './src/screens/PlaceOrderCart';
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -149,6 +150,7 @@ const StackNavigator = () => {
       <Stack.Screen name="Cart" component={CartScreen} />
       <Stack.Screen name="MyAddress" component={MyAddressScreen} />
       <Stack.Screen name="AddressMapScreen" component={AddressMapScreen} />
+      <Stack.Screen name="PlaceOrderCart" component={PlaceOrderCart} />
       <Stack.Screen name="PaymentMethods" component={PaymentMethodsScreen} />
       <Stack.Screen
         name="OrderConfirmation"

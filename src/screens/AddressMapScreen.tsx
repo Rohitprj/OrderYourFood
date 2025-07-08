@@ -143,7 +143,7 @@ const AddressMapScreen: React.FC<AddressMapScreenProps> = ({ navigation }) => {
           {/* Save Button */}
           <TouchableOpacity
             style={styles.saveButton}
-            onPress={() => navigation.navigate('PaymentMethods')}
+            onPress={() => navigation.navigate('PlaceOrderCart')}
           >
             <Text style={styles.saveButtonText}>SAVE</Text>
           </TouchableOpacity>
