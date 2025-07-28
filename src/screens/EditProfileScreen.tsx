@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import {
   View,
   Text,
@@ -15,7 +15,9 @@ interface EditProfileScreenProps {
   navigation: any;
 }
 
-const EditProfileScreen: React.FC<EditProfileScreenProps> = ({navigation}) => {
+const EditProfileScreen: React.FC<EditProfileScreenProps> = ({
+  navigation,
+}) => {
   const [fullName, setFullName] = useState('Vishal Khadok');
   const [email, setEmail] = useState('Vishalkhadok@gmail.com');
   const [phoneNumber, setPhoneNumber] = useState('408-841-0926');
@@ -24,9 +26,9 @@ const EditProfileScreen: React.FC<EditProfileScreenProps> = ({navigation}) => {
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar barStyle="dark-content" backgroundColor="#FFFFFF" />
-      
+
       {/* Status Bar */}
-      <View style={styles.statusBar}>
+      {/* <View style={styles.statusBar}>
         <Text style={styles.time}>9:41</Text>
         <View style={styles.statusIcons}>
           <View style={styles.signalBars}>
@@ -40,14 +42,15 @@ const EditProfileScreen: React.FC<EditProfileScreenProps> = ({navigation}) => {
             <View style={styles.batteryLevel} />
           </View>
         </View>
-      </View>
+      </View> */}
 
       <View style={styles.content}>
         {/* Header */}
         <View style={styles.header}>
           <TouchableOpacity
             style={styles.backButton}
-            onPress={() => navigation.goBack()}>
+            onPress={() => navigation.goBack()}
+          >
             <Icon name="arrow-back" size={24} color="#374151" />
           </TouchableOpacity>
           <Text style={styles.headerTitle}>Profile</Text>
@@ -56,7 +59,10 @@ const EditProfileScreen: React.FC<EditProfileScreenProps> = ({navigation}) => {
           </TouchableOpacity>
         </View>
 
-        <ScrollView style={styles.scrollContent} showsVerticalScrollIndicator={false}>
+        <ScrollView
+          style={styles.scrollContent}
+          showsVerticalScrollIndicator={false}
+        >
           {/* Profile Image Section */}
           <View style={styles.profileSection}>
             <View style={styles.profileImageContainer}>
@@ -124,9 +130,10 @@ const EditProfileScreen: React.FC<EditProfileScreenProps> = ({navigation}) => {
 
           {/* Save Button */}
           <View style={styles.buttonSection}>
-            <TouchableOpacity 
+            <TouchableOpacity
               style={styles.saveButton}
-              onPress={() => navigation.goBack()}>
+              onPress={() => navigation.goBack()}
+            >
               <Text style={styles.saveButtonText}>SAVE</Text>
             </TouchableOpacity>
           </View>
@@ -169,10 +176,10 @@ const styles = StyleSheet.create({
     backgroundColor: '#000000',
     borderRadius: 1,
   },
-  bar1: {height: 4},
-  bar2: {height: 6},
-  bar3: {height: 8},
-  bar4: {height: 10},
+  bar1: { height: 4 },
+  bar2: { height: 6 },
+  bar3: { height: 8 },
+  bar4: { height: 10 },
   battery: {
     width: 24,
     height: 12,
@@ -194,7 +201,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     paddingHorizontal: 20,
-    paddingVertical: 16,
+    paddingVertical: 36,
     backgroundColor: '#FFFFFF',
   },
   backButton: {
@@ -254,7 +261,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#FFFFFF',
     paddingHorizontal: 20,
     paddingVertical: 24,
-    marginBottom: 16,
+    // marginBottom: 16,
   },
   fieldContainer: {
     marginBottom: 24,
@@ -282,7 +289,7 @@ const styles = StyleSheet.create({
   },
   buttonSection: {
     paddingHorizontal: 20,
-    paddingBottom: 32,
+    paddingBottom: 22,
   },
   saveButton: {
     backgroundColor: '#1E40AF',

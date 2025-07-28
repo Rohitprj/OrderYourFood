@@ -15,7 +15,9 @@ interface OrderDetailsScreenProps {
   navigation: any;
 }
 
-const OrderDetailsScreen: React.FC<OrderDetailsScreenProps> = ({navigation}) => {
+const OrderDetailsScreen: React.FC<OrderDetailsScreenProps> = ({
+  navigation,
+}) => {
   const transactionDetails = [
     {
       label: 'Order ID',
@@ -34,7 +36,7 @@ const OrderDetailsScreen: React.FC<OrderDetailsScreenProps> = ({navigation}) => 
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar barStyle="dark-content" backgroundColor="#FFFFFF" />
-      
+
       {/* Status Bar */}
       <View style={styles.statusBar}>
         <Text style={styles.time}>9:41</Text>
@@ -57,19 +59,25 @@ const OrderDetailsScreen: React.FC<OrderDetailsScreenProps> = ({navigation}) => 
         <View style={styles.header}>
           <TouchableOpacity
             style={styles.backButton}
-            onPress={() => navigation.goBack()}>
+            onPress={() => navigation.goBack()}
+          >
             <Icon name="arrow-back" size={24} color="#374151" />
           </TouchableOpacity>
           <Text style={styles.headerTitle}>Order Details</Text>
           <View style={styles.placeholder} />
         </View>
 
-        <ScrollView style={styles.scrollContent} showsVerticalScrollIndicator={false}>
+        <ScrollView
+          style={styles.scrollContent}
+          showsVerticalScrollIndicator={false}
+        >
           {/* Rider Info */}
           <View style={styles.riderSection}>
             <View style={styles.riderInfo}>
               <Image
-                source={{uri: 'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=100'}}
+                source={{
+                  uri: 'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=100',
+                }}
                 style={styles.riderImage}
               />
               <View style={styles.riderDetails}>
@@ -77,7 +85,7 @@ const OrderDetailsScreen: React.FC<OrderDetailsScreenProps> = ({navigation}) => 
                 <Text style={styles.riderPhone}>9777890545</Text>
               </View>
             </View>
-            
+
             <View style={styles.actionButtons}>
               <TouchableOpacity style={styles.callButton}>
                 <Text style={styles.callButtonText}>Call</Text>
@@ -102,9 +110,10 @@ const OrderDetailsScreen: React.FC<OrderDetailsScreenProps> = ({navigation}) => 
 
         {/* Bottom Button */}
         <View style={styles.bottomSection}>
-          <TouchableOpacity 
+          <TouchableOpacity
             style={styles.trackButton}
-            onPress={() => navigation.navigate('DeliveryTracking')}>
+            onPress={() => navigation.navigate('DeliveryTrackingScreen')}
+          >
             <Text style={styles.trackButtonText}>TRACK ORDER</Text>
           </TouchableOpacity>
         </View>
@@ -146,10 +155,10 @@ const styles = StyleSheet.create({
     backgroundColor: '#000000',
     borderRadius: 1,
   },
-  bar1: {height: 4},
-  bar2: {height: 6},
-  bar3: {height: 8},
-  bar4: {height: 10},
+  bar1: { height: 4 },
+  bar2: { height: 6 },
+  bar3: { height: 8 },
+  bar4: { height: 10 },
   battery: {
     width: 24,
     height: 12,

@@ -24,23 +24,6 @@ const LoginScreen: React.FC<LoginScreenProps> = ({ navigation }) => {
     <SafeAreaView style={styles.container}>
       <StatusBar barStyle="dark-content" backgroundColor="#FFFFFF" />
 
-      {/* Status Bar */}
-      {/* <View style={styles.statusBar}>
-        <Text style={styles.time}>9:41</Text>
-        <View style={styles.statusIcons}>
-          <View style={styles.signalBars}>
-            <View style={[styles.bar, styles.bar1]} />
-            <View style={[styles.bar, styles.bar2]} />
-            <View style={[styles.bar, styles.bar3]} />
-            <View style={[styles.bar, styles.bar4]} />
-          </View>
-          <Icon name="wifi" size={16} color="#000" />
-          <View style={styles.battery}>
-            <View style={styles.batteryLevel} />
-          </View>
-        </View>
-      </View> */}
-
       <ScrollView style={styles.content} showsVerticalScrollIndicator={false}>
         {/* Header */}
         <View style={styles.header}>
@@ -48,7 +31,7 @@ const LoginScreen: React.FC<LoginScreenProps> = ({ navigation }) => {
             style={styles.backButton}
             onPress={() => navigation.goBack()}
           >
-            <Icon name="arrow-back" size={24} color="#374151" />
+            {/* <Icon name="arrow-back" size={24} color="#374151" /> */}
           </TouchableOpacity>
         </View>
 

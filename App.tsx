@@ -1,31 +1,3 @@
-// /**
-//  * Sample React Native App
-//  * https://github.com/facebook/react-native
-//  *
-//  * @format
-//  */
-
-// import { NewAppScreen } from '@react-native/new-app-screen';
-// import { StatusBar, StyleSheet, useColorScheme, View } from 'react-native';
-
-// function App() {
-//   const isDarkMode = useColorScheme() === 'dark';
-
-//   return (
-//     <View style={styles.container}>
-//       <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-//       <NewAppScreen templateFileName="App.tsx" />
-//     </View>
-//   );
-// }
-
-// const styles = StyleSheet.create({
-//   container: {
-//     flex: 1,
-//   },
-// });
-
-// export default App;
 import { View, Text, StyleSheet } from 'react-native';
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
@@ -41,7 +13,7 @@ import CreateNewPasswordScreen from './src/screens/CreateNewPasswordScreen';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import FoodHomeScreen from './src/screens/FoodHomeScreen';
 import ProfileDetailScreen from './src/screens/ProfileDetailScreen';
-import SettingsScreen from './src/screens/SettingsScreen';
+import SearchScreen from './src/screens/SearchScreen';
 import TabBarIcon from './src/components/TabBarIcon';
 import FilterScreen from './src/screens/FilterScreen';
 import RestaurantDetailScreen from './src/screens/RestaurantDetailScreen';
@@ -94,11 +66,11 @@ const TabNavigator: React.FC = () => {
         }}
       />
       <Tab.Screen
-        name="Settings"
-        component={SettingsScreen}
+        name="Search"
+        component={SearchScreen}
         options={{
           tabBarIcon: ({ color, size }) => (
-            <TabBarIcon name="settings" color={color} size={size} />
+            <TabBarIcon name="search" color={color} size={size} />
           ),
         }}
       />
@@ -152,10 +124,10 @@ const StackNavigator = () => {
       <Stack.Screen name="AddressMapScreen" component={AddressMapScreen} />
       <Stack.Screen name="PlaceOrderCart" component={PlaceOrderCart} />
       <Stack.Screen name="PaymentMethods" component={PaymentMethodsScreen} />
-      <Stack.Screen
+      {/* <Stack.Screen
         name="OrderConfirmation"
         component={OrderConfirmationScreen}
-      />
+      /> */}
       <Stack.Screen name="OrderDetails" component={OrderDetailsScreen} />
       <Stack.Screen
         name="DeliveryTrackingScreen"

@@ -28,7 +28,7 @@ const CreateNewPasswordScreen: React.FC<CreateNewPasswordScreenProps> = ({
       <StatusBar barStyle="dark-content" backgroundColor="#FFFFFF" />
 
       {/* Status Bar */}
-      <View style={styles.statusBar}>
+      {/* <View style={styles.statusBar}>
         <Text style={styles.time}>9:41</Text>
         <View style={styles.statusIcons}>
           <View style={styles.signalBars}>
@@ -42,7 +42,7 @@ const CreateNewPasswordScreen: React.FC<CreateNewPasswordScreenProps> = ({
             <View style={styles.batteryLevel} />
           </View>
         </View>
-      </View>
+      </View> */}
 
       <ScrollView style={styles.content} showsVerticalScrollIndicator={false}>
         {/* Header */}
@@ -184,7 +184,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
   },
   header: {
-    paddingVertical: 16,
+    paddingVertical: 36,
   },
   backButton: {
     width: 40,
