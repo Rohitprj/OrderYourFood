@@ -14,27 +14,12 @@ interface DeliveryMapScreenProps {
   navigation: any;
 }
 
-const DeliveryMapScreen: React.FC<DeliveryMapScreenProps> = ({navigation}) => {
+const DeliveryMapScreen: React.FC<DeliveryMapScreenProps> = ({
+  navigation,
+}) => {
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar barStyle="dark-content" backgroundColor="#FFFFFF" />
-      
-      {/* Status Bar */}
-      <View style={styles.statusBar}>
-        <Text style={styles.time}>9:41</Text>
-        <View style={styles.statusIcons}>
-          <View style={styles.signalBars}>
-            <View style={[styles.bar, styles.bar1]} />
-            <View style={[styles.bar, styles.bar2]} />
-            <View style={[styles.bar, styles.bar3]} />
-            <View style={[styles.bar, styles.bar4]} />
-          </View>
-          <Icon name="wifi" size={16} color="#000" />
-          <View style={styles.battery}>
-            <View style={styles.batteryLevel} />
-          </View>
-        </View>
-      </View>
 
       <View style={styles.content}>
         {/* Map Section */}
@@ -42,43 +27,43 @@ const DeliveryMapScreen: React.FC<DeliveryMapScreenProps> = ({navigation}) => {
           {/* Map Background */}
           <View style={styles.mapBackground}>
             {/* Location markers */}
-            <View style={[styles.locationPin, {top: 40, left: 60}]}>
+            <View style={[styles.locationPin, { top: 40, left: 60 }]}>
               <Icon name="location-on" size={16} color="#EF4444" />
             </View>
-            <View style={[styles.locationPin, {top: 80, right: 40}]}>
+            <View style={[styles.locationPin, { top: 80, right: 40 }]}>
               <Icon name="location-on" size={16} color="#EF4444" />
             </View>
-            <View style={[styles.locationPin, {bottom: 100, left: 40}]}>
+            <View style={[styles.locationPin, { bottom: 100, left: 40 }]}>
               <Icon name="location-on" size={16} color="#EF4444" />
             </View>
-            <View style={[styles.locationPin, {bottom: 60, right: 60}]}>
+            <View style={[styles.locationPin, { bottom: 60, right: 60 }]}>
               <Icon name="location-on" size={16} color="#EF4444" />
             </View>
-            
+
             {/* Route line */}
             <View style={styles.routeLine} />
-            
+
             {/* Start location */}
             <View style={styles.startLocation}>
               <Icon name="location-on" size={24} color="#FFFFFF" />
             </View>
-            
+
             {/* End location */}
             <View style={styles.endLocation}>
               <Icon name="location-on" size={24} color="#FFFFFF" />
             </View>
-            
+
             {/* Delivery person */}
             <View style={styles.deliveryPerson}>
               <Icon name="delivery-dining" size={20} color="#FFFFFF" />
             </View>
-            
+
             {/* Red Map label */}
             <View style={styles.redMapLabel}>
               <Icon name="location-on" size={16} color="#EF4444" />
               <Text style={styles.redMapText}>Red Map</Text>
             </View>
-            
+
             {/* Latitude label */}
             <View style={styles.latitudeLabel}>
               <Icon name="location-on" size={16} color="#EF4444" />
@@ -89,7 +74,8 @@ const DeliveryMapScreen: React.FC<DeliveryMapScreenProps> = ({navigation}) => {
           {/* Back Button */}
           <TouchableOpacity
             style={styles.backButton}
-            onPress={() => navigation.goBack()}>
+            onPress={() => navigation.goBack()}
+          >
             <Icon name="arrow-back" size={24} color="#374151" />
           </TouchableOpacity>
 
@@ -103,7 +89,9 @@ const DeliveryMapScreen: React.FC<DeliveryMapScreenProps> = ({navigation}) => {
         {/* Bottom Order Card */}
         <View style={styles.orderCard}>
           <Image
-            source={{uri: 'https://images.pexels.com/photos/315755/pexels-photo-315755.jpeg?auto=compress&cs=tinysrgb&w=400'}}
+            source={{
+              uri: 'https://images.pexels.com/photos/315755/pexels-photo-315755.jpeg?auto=compress&cs=tinysrgb&w=400',
+            }}
             style={styles.orderImage}
           />
           <View style={styles.orderInfo}>
@@ -150,10 +138,10 @@ const styles = StyleSheet.create({
     backgroundColor: '#000000',
     borderRadius: 1,
   },
-  bar1: {height: 4},
-  bar2: {height: 6},
-  bar3: {height: 8},
-  bar4: {height: 10},
+  bar1: { height: 4 },
+  bar2: { height: 6 },
+  bar3: { height: 8 },
+  bar4: { height: 10 },
   battery: {
     width: 24,
     height: 12,
@@ -194,7 +182,7 @@ const styles = StyleSheet.create({
     height: 4,
     backgroundColor: '#1E40AF',
     borderRadius: 2,
-    transform: [{rotate: '25deg'}],
+    transform: [{ rotate: '25deg' }],
   },
   startLocation: {
     position: 'absolute',
@@ -240,7 +228,7 @@ const styles = StyleSheet.create({
     paddingVertical: 4,
     borderRadius: 12,
     shadowColor: '#000',
-    shadowOffset: {width: 0, height: 2},
+    shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.1,
     shadowRadius: 4,
     elevation: 3,
@@ -261,7 +249,7 @@ const styles = StyleSheet.create({
     paddingVertical: 4,
     borderRadius: 12,
     shadowColor: '#000',
-    shadowOffset: {width: 0, height: 2},
+    shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.1,
     shadowRadius: 4,
     elevation: 3,
@@ -282,7 +270,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     shadowColor: '#000',
-    shadowOffset: {width: 0, height: 2},
+    shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.1,
     shadowRadius: 4,
     elevation: 3,
@@ -298,7 +286,7 @@ const styles = StyleSheet.create({
     paddingVertical: 8,
     borderRadius: 16,
     shadowColor: '#000',
-    shadowOffset: {width: 0, height: 2},
+    shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.1,
     shadowRadius: 4,
     elevation: 3,
@@ -317,7 +305,7 @@ const styles = StyleSheet.create({
     padding: 16,
     borderRadius: 12,
     shadowColor: '#000',
-    shadowOffset: {width: 0, height: 2},
+    shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.1,
     shadowRadius: 4,
     elevation: 3,

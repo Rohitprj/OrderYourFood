@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import {
   View,
   Text,
@@ -15,7 +15,9 @@ interface OrderHistoryScreenProps {
   navigation: any;
 }
 
-const OrderHistoryScreen: React.FC<OrderHistoryScreenProps> = ({navigation}) => {
+const OrderHistoryScreen: React.FC<OrderHistoryScreenProps> = ({
+  navigation,
+}) => {
   const [activeTab, setActiveTab] = useState('Ongoing');
 
   const ongoingOrders = [
@@ -26,7 +28,8 @@ const OrderHistoryScreen: React.FC<OrderHistoryScreenProps> = ({navigation}) => 
       price: '₹1200',
       items: '03 Items',
       status: 'ongoing',
-      image: 'https://images.pexels.com/photos/260922/pexels-photo-260922.jpeg?auto=compress&cs=tinysrgb&w=400',
+      image:
+        'https://images.pexels.com/photos/260922/pexels-photo-260922.jpeg?auto=compress&cs=tinysrgb&w=400',
     },
     {
       id: 2,
@@ -35,7 +38,8 @@ const OrderHistoryScreen: React.FC<OrderHistoryScreenProps> = ({navigation}) => 
       price: '₹1200',
       items: '03 Items',
       status: 'ongoing',
-      image: 'https://images.pexels.com/photos/260922/pexels-photo-260922.jpeg?auto=compress&cs=tinysrgb&w=400',
+      image:
+        'https://images.pexels.com/photos/260922/pexels-photo-260922.jpeg?auto=compress&cs=tinysrgb&w=400',
     },
     {
       id: 3,
@@ -44,7 +48,8 @@ const OrderHistoryScreen: React.FC<OrderHistoryScreenProps> = ({navigation}) => 
       price: '₹1200',
       items: '03 Items',
       status: 'ongoing',
-      image: 'https://images.pexels.com/photos/260922/pexels-photo-260922.jpeg?auto=compress&cs=tinysrgb&w=400',
+      image:
+        'https://images.pexels.com/photos/260922/pexels-photo-260922.jpeg?auto=compress&cs=tinysrgb&w=400',
     },
     {
       id: 4,
@@ -53,7 +58,8 @@ const OrderHistoryScreen: React.FC<OrderHistoryScreenProps> = ({navigation}) => 
       price: '₹1200',
       items: '03 Items',
       status: 'ongoing',
-      image: 'https://images.pexels.com/photos/260922/pexels-photo-260922.jpeg?auto=compress&cs=tinysrgb&w=400',
+      image:
+        'https://images.pexels.com/photos/260922/pexels-photo-260922.jpeg?auto=compress&cs=tinysrgb&w=400',
     },
     {
       id: 5,
@@ -62,7 +68,8 @@ const OrderHistoryScreen: React.FC<OrderHistoryScreenProps> = ({navigation}) => 
       price: '₹1200',
       items: '03 Items',
       status: 'ongoing',
-      image: 'https://images.pexels.com/photos/260922/pexels-photo-260922.jpeg?auto=compress&cs=tinysrgb&w=400',
+      image:
+        'https://images.pexels.com/photos/260922/pexels-photo-260922.jpeg?auto=compress&cs=tinysrgb&w=400',
     },
   ];
 
@@ -74,7 +81,8 @@ const OrderHistoryScreen: React.FC<OrderHistoryScreenProps> = ({navigation}) => 
       price: '₹1200',
       items: '20 Jan, 12:30 • 13 Items',
       status: 'Cancelled',
-      image: 'https://images.pexels.com/photos/260922/pexels-photo-260922.jpeg?auto=compress&cs=tinysrgb&w=400',
+      image:
+        'https://images.pexels.com/photos/260922/pexels-photo-260922.jpeg?auto=compress&cs=tinysrgb&w=400',
     },
     {
       id: 2,
@@ -83,7 +91,8 @@ const OrderHistoryScreen: React.FC<OrderHistoryScreenProps> = ({navigation}) => 
       price: '₹1200',
       items: '20 Jan, 12:30 • 13 Items',
       status: 'Completed',
-      image: 'https://images.pexels.com/photos/260922/pexels-photo-260922.jpeg?auto=compress&cs=tinysrgb&w=400',
+      image:
+        'https://images.pexels.com/photos/260922/pexels-photo-260922.jpeg?auto=compress&cs=tinysrgb&w=400',
     },
     {
       id: 3,
@@ -92,7 +101,8 @@ const OrderHistoryScreen: React.FC<OrderHistoryScreenProps> = ({navigation}) => 
       price: '₹1200',
       items: '20 Jan, 12:30 • 13 Items',
       status: 'Completed',
-      image: 'https://images.pexels.com/photos/260922/pexels-photo-260922.jpeg?auto=compress&cs=tinysrgb&w=400',
+      image:
+        'https://images.pexels.com/photos/260922/pexels-photo-260922.jpeg?auto=compress&cs=tinysrgb&w=400',
     },
     {
       id: 4,
@@ -101,13 +111,14 @@ const OrderHistoryScreen: React.FC<OrderHistoryScreenProps> = ({navigation}) => 
       price: '₹1300',
       items: '20 Jan, 12:30 • 13 Items',
       status: 'Completed',
-      image: 'https://images.pexels.com/photos/260922/pexels-photo-260922.jpeg?auto=compress&cs=tinysrgb&w=400',
+      image:
+        'https://images.pexels.com/photos/260922/pexels-photo-260922.jpeg?auto=compress&cs=tinysrgb&w=400',
     },
   ];
 
   const renderOrderItem = (order: any, isOngoing: boolean = false) => (
     <View key={order.id} style={styles.orderItem}>
-      <Image source={{uri: order.image}} style={styles.orderImage} />
+      <Image source={{ uri: order.image }} style={styles.orderImage} />
       <View style={styles.orderInfo}>
         <Text style={styles.restaurantName}>{order.restaurant}</Text>
         <Text style={styles.orderId}>{order.orderId}</Text>
@@ -117,15 +128,18 @@ const OrderHistoryScreen: React.FC<OrderHistoryScreenProps> = ({navigation}) => 
       <View style={styles.orderActions}>
         {isOngoing ? (
           <>
-            <TouchableOpacity 
+            <TouchableOpacity
               style={styles.trackButton}
-              onPress={() => navigation.navigate('OrderDetails')}>
+              onPress={() => navigation.navigate('OrderDetails')}
+            >
               <Text style={styles.trackButtonText}>Track Order</Text>
             </TouchableOpacity>
             <TouchableOpacity style={styles.cancelButton}>
               <Text style={styles.cancelButtonText}>Cancel</Text>
             </TouchableOpacity>
-            <Text style={styles.cancelWarning}>Order cannot be cancelled after 1 minute!</Text>
+            <Text style={styles.cancelWarning}>
+              Order cannot be cancelled after 1 minute!
+            </Text>
           </>
         ) : (
           <>
@@ -135,10 +149,14 @@ const OrderHistoryScreen: React.FC<OrderHistoryScreenProps> = ({navigation}) => 
             <TouchableOpacity style={styles.reOrderButton}>
               <Text style={styles.reOrderButtonText}>Re-Order</Text>
             </TouchableOpacity>
-            <Text style={[
-              styles.orderStatus,
-              order.status === 'Cancelled' ? styles.cancelledStatus : styles.completedStatus
-            ]}>
+            <Text
+              style={[
+                styles.orderStatus,
+                order.status === 'Cancelled'
+                  ? styles.cancelledStatus
+                  : styles.completedStatus,
+              ]}
+            >
               {order.status}
             </Text>
           </>
@@ -150,30 +168,14 @@ const OrderHistoryScreen: React.FC<OrderHistoryScreenProps> = ({navigation}) => 
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar barStyle="dark-content" backgroundColor="#FFFFFF" />
-      
-      {/* Status Bar */}
-      <View style={styles.statusBar}>
-        <Text style={styles.time}>9:41</Text>
-        <View style={styles.statusIcons}>
-          <View style={styles.signalBars}>
-            <View style={[styles.bar, styles.bar1]} />
-            <View style={[styles.bar, styles.bar2]} />
-            <View style={[styles.bar, styles.bar3]} />
-            <View style={[styles.bar, styles.bar4]} />
-          </View>
-          <Icon name="wifi" size={16} color="#000" />
-          <View style={styles.battery}>
-            <View style={styles.batteryLevel} />
-          </View>
-        </View>
-      </View>
 
       <View style={styles.content}>
         {/* Header */}
         <View style={styles.header}>
           <TouchableOpacity
             style={styles.backButton}
-            onPress={() => navigation.goBack()}>
+            onPress={() => navigation.goBack()}
+          >
             <Icon name="arrow-back" size={24} color="#374151" />
           </TouchableOpacity>
           <Text style={styles.headerTitle}>About This Menu</Text>
@@ -184,26 +186,40 @@ const OrderHistoryScreen: React.FC<OrderHistoryScreenProps> = ({navigation}) => 
         <View style={styles.tabContainer}>
           <TouchableOpacity
             style={[styles.tab, activeTab === 'Ongoing' && styles.activeTab]}
-            onPress={() => setActiveTab('Ongoing')}>
-            <Text style={[styles.tabText, activeTab === 'Ongoing' && styles.activeTabText]}>
+            onPress={() => setActiveTab('Ongoing')}
+          >
+            <Text
+              style={[
+                styles.tabText,
+                activeTab === 'Ongoing' && styles.activeTabText,
+              ]}
+            >
               Ongoing
             </Text>
           </TouchableOpacity>
           <TouchableOpacity
             style={[styles.tab, activeTab === 'History' && styles.activeTab]}
-            onPress={() => setActiveTab('History')}>
-            <Text style={[styles.tabText, activeTab === 'History' && styles.activeTabText]}>
+            onPress={() => setActiveTab('History')}
+          >
+            <Text
+              style={[
+                styles.tabText,
+                activeTab === 'History' && styles.activeTabText,
+              ]}
+            >
               History
             </Text>
           </TouchableOpacity>
         </View>
 
         {/* Orders List */}
-        <ScrollView style={styles.ordersList} showsVerticalScrollIndicator={false}>
-          {activeTab === 'Ongoing' 
+        <ScrollView
+          style={styles.ordersList}
+          showsVerticalScrollIndicator={false}
+        >
+          {activeTab === 'Ongoing'
             ? ongoingOrders.map(order => renderOrderItem(order, true))
-            : historyOrders.map(order => renderOrderItem(order, false))
-          }
+            : historyOrders.map(order => renderOrderItem(order, false))}
         </ScrollView>
       </View>
     </SafeAreaView>
@@ -243,10 +259,10 @@ const styles = StyleSheet.create({
     backgroundColor: '#000000',
     borderRadius: 1,
   },
-  bar1: {height: 4},
-  bar2: {height: 6},
-  bar3: {height: 8},
-  bar4: {height: 10},
+  bar1: { height: 4 },
+  bar2: { height: 6 },
+  bar3: { height: 8 },
+  bar4: { height: 10 },
   battery: {
     width: 24,
     height: 12,
@@ -322,7 +338,7 @@ const styles = StyleSheet.create({
     padding: 16,
     marginBottom: 16,
     shadowColor: '#000',
-    shadowOffset: {width: 0, height: 2},
+    shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.1,
     shadowRadius: 4,
     elevation: 3,

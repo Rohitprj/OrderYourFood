@@ -14,7 +14,9 @@ interface PersonalInfoScreenProps {
   navigation: any;
 }
 
-const PersonalInfoScreen: React.FC<PersonalInfoScreenProps> = ({navigation}) => {
+const PersonalInfoScreen: React.FC<PersonalInfoScreenProps> = ({
+  navigation,
+}) => {
   const personalInfo = [
     {
       icon: 'person',
@@ -39,41 +41,29 @@ const PersonalInfoScreen: React.FC<PersonalInfoScreenProps> = ({navigation}) => 
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar barStyle="dark-content" backgroundColor="#FFFFFF" />
-      
-      {/* Status Bar */}
-      <View style={styles.statusBar}>
-        <Text style={styles.time}>9:41</Text>
-        <View style={styles.statusIcons}>
-          <View style={styles.signalBars}>
-            <View style={[styles.bar, styles.bar1]} />
-            <View style={[styles.bar, styles.bar2]} />
-            <View style={[styles.bar, styles.bar3]} />
-            <View style={[styles.bar, styles.bar4]} />
-          </View>
-          <Icon name="wifi" size={16} color="#000" />
-          <View style={styles.battery}>
-            <View style={styles.batteryLevel} />
-          </View>
-        </View>
-      </View>
 
       <View style={styles.content}>
         {/* Header */}
         <View style={styles.header}>
           <TouchableOpacity
             style={styles.backButton}
-            onPress={() => navigation.goBack()}>
+            onPress={() => navigation.goBack()}
+          >
             <Icon name="arrow-back" size={24} color="#374151" />
           </TouchableOpacity>
           <Text style={styles.headerTitle}>Profile</Text>
-          <TouchableOpacity 
+          <TouchableOpacity
             style={styles.editButton}
-            onPress={() => navigation.navigate('EditProfile')}>
+            onPress={() => navigation.navigate('EditProfile')}
+          >
             <Text style={styles.editButtonText}>EDIT</Text>
           </TouchableOpacity>
         </View>
 
-        <ScrollView style={styles.scrollContent} showsVerticalScrollIndicator={false}>
+        <ScrollView
+          style={styles.scrollContent}
+          showsVerticalScrollIndicator={false}
+        >
           {/* Profile Section */}
           <View style={styles.profileSection}>
             <View style={styles.profileImageContainer}>
@@ -89,7 +79,12 @@ const PersonalInfoScreen: React.FC<PersonalInfoScreenProps> = ({navigation}) => 
           <View style={styles.infoSection}>
             {personalInfo.map((item, index) => (
               <View key={index} style={styles.infoItem}>
-                <View style={[styles.infoIcon, {backgroundColor: `${item.color}15`}]}>
+                <View
+                  style={[
+                    styles.infoIcon,
+                    { backgroundColor: `${item.color}15` },
+                  ]}
+                >
                   <Icon name={item.icon} size={20} color={item.color} />
                 </View>
                 <View style={styles.infoContent}>
@@ -138,10 +133,10 @@ const styles = StyleSheet.create({
     backgroundColor: '#000000',
     borderRadius: 1,
   },
-  bar1: {height: 4},
-  bar2: {height: 6},
-  bar3: {height: 8},
-  bar4: {height: 10},
+  bar1: { height: 4 },
+  bar2: { height: 6 },
+  bar3: { height: 8 },
+  bar4: { height: 10 },
   battery: {
     width: 24,
     height: 12,

@@ -19,9 +19,7 @@ const WelcomeScreen: React.FC<WelcomeScreenProps> = ({ navigation }) => {
       <StatusBar barStyle="dark-content" backgroundColor="#FFFFFF" />
       <View style={styles.content}>
         {/* Main Content Area - You can add your logo/branding here */}
-        <View style={styles.mainContent}>
-          {/* This is where you would add your app logo or welcome content */}
-        </View>
+        <View style={styles.mainContent}></View>
 
         {/* Bottom Buttons */}
 

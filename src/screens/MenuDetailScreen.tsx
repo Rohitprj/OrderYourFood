@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import {
   View,
   Text,
@@ -15,7 +15,7 @@ interface MenuDetailScreenProps {
   navigation: any;
 }
 
-const MenuDetailScreen: React.FC<MenuDetailScreenProps> = ({navigation}) => {
+const MenuDetailScreen: React.FC<MenuDetailScreenProps> = ({ navigation }) => {
   const [quantity, setQuantity] = useState(1);
 
   const recommendedItems = [
@@ -24,51 +24,38 @@ const MenuDetailScreen: React.FC<MenuDetailScreenProps> = ({navigation}) => {
       rating: 4.5,
       price: '₹ 480',
       originalPrice: '₹ 500',
-      image: 'https://images.pexels.com/photos/2233348/pexels-photo-2233348.jpeg?auto=compress&cs=tinysrgb&w=400',
+      image:
+        'https://images.pexels.com/photos/2233348/pexels-photo-2233348.jpeg?auto=compress&cs=tinysrgb&w=400',
     },
     {
       name: 'Chicken Shawarma',
       rating: 4.5,
       price: '₹ 480',
       originalPrice: '₹ 500',
-      image: 'https://images.pexels.com/photos/1633525/pexels-photo-1633525.jpeg?auto=compress&cs=tinysrgb&w=400',
+      image:
+        'https://images.pexels.com/photos/1633525/pexels-photo-1633525.jpeg?auto=compress&cs=tinysrgb&w=400',
     },
     {
       name: 'Chicken Shawarma',
       rating: 4.5,
       price: '₹ 480',
       originalPrice: '₹ 500',
-      image: 'https://images.pexels.com/photos/2474661/pexels-photo-2474661.jpeg?auto=compress&cs=tinysrgb&w=400',
+      image:
+        'https://images.pexels.com/photos/2474661/pexels-photo-2474661.jpeg?auto=compress&cs=tinysrgb&w=400',
     },
   ];
 
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar barStyle="dark-content" backgroundColor="#FFFFFF" />
-      
-      {/* Status Bar */}
-      <View style={styles.statusBar}>
-        <Text style={styles.time}>9:41</Text>
-        <View style={styles.statusIcons}>
-          <View style={styles.signalBars}>
-            <View style={[styles.bar, styles.bar1]} />
-            <View style={[styles.bar, styles.bar2]} />
-            <View style={[styles.bar, styles.bar3]} />
-            <View style={[styles.bar, styles.bar4]} />
-          </View>
-          <Icon name="wifi" size={16} color="#000" />
-          <View style={styles.battery}>
-            <View style={styles.batteryLevel} />
-          </View>
-        </View>
-      </View>
 
       <View style={styles.content}>
         {/* Header */}
         <View style={styles.header}>
           <TouchableOpacity
             style={styles.backButton}
-            onPress={() => navigation.goBack()}>
+            onPress={() => navigation.goBack()}
+          >
             <Icon name="arrow-back" size={24} color="#374151" />
           </TouchableOpacity>
           <Text style={styles.headerTitle}>About This Menu</Text>
@@ -77,12 +64,17 @@ const MenuDetailScreen: React.FC<MenuDetailScreenProps> = ({navigation}) => {
           </TouchableOpacity>
         </View>
 
-        <ScrollView style={styles.scrollContent} showsVerticalScrollIndicator={false}>
+        <ScrollView
+          style={styles.scrollContent}
+          showsVerticalScrollIndicator={false}
+        >
           {/* Menu Item Detail */}
           <View style={styles.menuDetail}>
             <View style={styles.menuImageContainer}>
               <Image
-                source={{uri: 'https://images.pexels.com/photos/2474661/pexels-photo-2474661.jpeg?auto=compress&cs=tinysrgb&w=400'}}
+                source={{
+                  uri: 'https://images.pexels.com/photos/2474661/pexels-photo-2474661.jpeg?auto=compress&cs=tinysrgb&w=400',
+                }}
                 style={styles.menuImage}
               />
               <TouchableOpacity style={styles.favoriteButton}>
@@ -110,7 +102,9 @@ const MenuDetailScreen: React.FC<MenuDetailScreenProps> = ({navigation}) => {
 
               <Text style={styles.description}>
                 Description{'\n'}
-                Tender chicken pieces are simmered in a rich, creamy tomato-based sauce, seasoned with aromatic spices. Garnished with fresh herbs and served with basmati rice or naan bread.
+                Tender chicken pieces are simmered in a rich, creamy
+                tomato-based sauce, seasoned with aromatic spices. Garnished
+                with fresh herbs and served with basmati rice or naan bread.
               </Text>
             </View>
           </View>
@@ -120,7 +114,10 @@ const MenuDetailScreen: React.FC<MenuDetailScreenProps> = ({navigation}) => {
             <Text style={styles.sectionTitle}>Recommended for you</Text>
             {recommendedItems.map((item, index) => (
               <View key={index} style={styles.recommendedItem}>
-                <Image source={{uri: item.image}} style={styles.recommendedImage} />
+                <Image
+                  source={{ uri: item.image }}
+                  style={styles.recommendedImage}
+                />
                 <View style={styles.recommendedInfo}>
                   <Text style={styles.recommendedName}>{item.name}</Text>
                   <View style={styles.recommendedRating}>
@@ -129,7 +126,9 @@ const MenuDetailScreen: React.FC<MenuDetailScreenProps> = ({navigation}) => {
                   </View>
                   <View style={styles.recommendedPriceContainer}>
                     <Text style={styles.recommendedPrice}>{item.price}</Text>
-                    <Text style={styles.recommendedOriginalPrice}>{item.originalPrice}</Text>
+                    <Text style={styles.recommendedOriginalPrice}>
+                      {item.originalPrice}
+                    </Text>
                   </View>
                 </View>
                 <TouchableOpacity style={styles.addButton}>
@@ -143,21 +142,24 @@ const MenuDetailScreen: React.FC<MenuDetailScreenProps> = ({navigation}) => {
         {/* Bottom Add to Cart */}
         <View style={styles.bottomCart}>
           <View style={styles.quantityContainer}>
-            <TouchableOpacity 
+            <TouchableOpacity
               style={styles.quantityButton}
-              onPress={() => setQuantity(Math.max(1, quantity - 1))}>
+              onPress={() => setQuantity(Math.max(1, quantity - 1))}
+            >
               <Icon name="remove" size={20} color="#1E40AF" />
             </TouchableOpacity>
             <Text style={styles.quantityText}>{quantity}</Text>
-            <TouchableOpacity 
+            <TouchableOpacity
               style={styles.quantityButton}
-              onPress={() => setQuantity(quantity + 1)}>
+              onPress={() => setQuantity(quantity + 1)}
+            >
               <Icon name="add" size={20} color="#1E40AF" />
             </TouchableOpacity>
           </View>
-          <TouchableOpacity 
+          <TouchableOpacity
             style={styles.addToCartButton}
-            onPress={() => navigation.navigate('Cart')}>
+            onPress={() => navigation.navigate('Cart')}
+          >
             <Text style={styles.addToCartButtonText}>Add to cart (₹ 450)</Text>
           </TouchableOpacity>
         </View>
@@ -199,10 +201,10 @@ const styles = StyleSheet.create({
     backgroundColor: '#000000',
     borderRadius: 1,
   },
-  bar1: {height: 4},
-  bar2: {height: 6},
-  bar3: {height: 8},
-  bar4: {height: 10},
+  bar1: { height: 4 },
+  bar2: { height: 6 },
+  bar3: { height: 8 },
+  bar4: { height: 10 },
   battery: {
     width: 24,
     height: 12,

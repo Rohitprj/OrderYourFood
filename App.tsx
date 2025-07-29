@@ -125,10 +125,6 @@ const StackNavigator = () => {
       <Stack.Screen name="AddressMapScreen" component={AddressMapScreen} />
       <Stack.Screen name="PlaceOrderCart" component={PlaceOrderCart} />
       <Stack.Screen name="PaymentMethods" component={PaymentMethodsScreen} />
-      {/* <Stack.Screen
-        name="OrderConfirmation"
-        component={OrderConfirmationScreen}
-      /> */}
       <Stack.Screen name="OrderDetails" component={OrderDetailsScreen} />
       <Stack.Screen
         name="DeliveryTrackingScreen"
