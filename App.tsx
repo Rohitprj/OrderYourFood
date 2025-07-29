@@ -31,6 +31,7 @@ import OrderHistoryScreen from './src/screens/OrderHistoryScreen';
 import PersonalInfoScreen from './src/screens/PersonalInfoScreen';
 import EditProfileScreen from './src/screens/EditProfileScreen';
 import PlaceOrderCart from './src/screens/PlaceOrderCart';
+import AboutThisMenu from './src/screens/AboutThisMenu';
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -135,6 +136,7 @@ const StackNavigator = () => {
       />
       <Stack.Screen name="DeliveryMapScreen" component={DeliveryMapScreen} />
       <Stack.Screen name="ChatScreen" component={ChatScreen} />
+      <Stack.Screen name="AboutThisMenu" component={AboutThisMenu} />
       <Stack.Screen name="OrderHistory" component={OrderHistoryScreen} />
       <Stack.Screen name="ProfileDetail" component={ProfileDetailScreen} />
       <Stack.Screen name="PersonalInfo" component={PersonalInfoScreen} />

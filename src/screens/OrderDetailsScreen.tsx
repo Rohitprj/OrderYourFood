@@ -38,7 +38,7 @@ const OrderDetailsScreen: React.FC<OrderDetailsScreenProps> = ({
       <StatusBar barStyle="dark-content" backgroundColor="#FFFFFF" />
 
       {/* Status Bar */}
-      <View style={styles.statusBar}>
+      {/* <View style={styles.statusBar}>
         <Text style={styles.time}>9:41</Text>
         <View style={styles.statusIcons}>
           <View style={styles.signalBars}>
@@ -52,7 +52,7 @@ const OrderDetailsScreen: React.FC<OrderDetailsScreenProps> = ({
             <View style={styles.batteryLevel} />
           </View>
         </View>
-      </View>
+      </View> */}
 
       <View style={styles.content}>
         {/* Header */}
@@ -180,7 +180,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     paddingHorizontal: 20,
-    paddingVertical: 16,
+    paddingVertical: 36,
     borderBottomWidth: 1,
     borderBottomColor: '#E5E7EB',
   },

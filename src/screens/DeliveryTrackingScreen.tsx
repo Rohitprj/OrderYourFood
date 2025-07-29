@@ -14,7 +14,9 @@ interface DeliveryTrackingScreenProps {
   navigation: any;
 }
 
-const DeliveryTrackingScreen: React.FC<DeliveryTrackingScreenProps> = ({navigation}) => {
+const DeliveryTrackingScreen: React.FC<DeliveryTrackingScreenProps> = ({
+  navigation,
+}) => {
   const orderSteps = [
     {
       title: 'Your order has been received',
@@ -37,9 +39,9 @@ const DeliveryTrackingScreen: React.FC<DeliveryTrackingScreenProps> = ({navigati
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar barStyle="dark-content" backgroundColor="#FFFFFF" />
-      
+
       {/* Status Bar */}
-      <View style={styles.statusBar}>
+      {/* <View style={styles.statusBar}>
         <Text style={styles.time}>9:41</Text>
         <View style={styles.statusIcons}>
           <View style={styles.signalBars}>
@@ -53,7 +55,7 @@ const DeliveryTrackingScreen: React.FC<DeliveryTrackingScreenProps> = ({navigati
             <View style={styles.batteryLevel} />
           </View>
         </View>
-      </View>
+      </View> */}
 
       <View style={styles.content}>
         {/* Map Section */}
@@ -62,7 +64,7 @@ const DeliveryTrackingScreen: React.FC<DeliveryTrackingScreenProps> = ({navigati
           <View style={styles.mapBackground}>
             {/* Route line */}
             <View style={styles.routeLine} />
-            
+
             {/* Location markers */}
             <View style={[styles.locationMarker, styles.startMarker]}>
               <Icon name="location-on" size={20} color="#FFFFFF" />
@@ -70,7 +72,7 @@ const DeliveryTrackingScreen: React.FC<DeliveryTrackingScreenProps> = ({navigati
             <View style={[styles.locationMarker, styles.endMarker]}>
               <Icon name="location-on" size={20} color="#FFFFFF" />
             </View>
-            
+
             {/* Delivery person marker */}
             <View style={styles.deliveryMarker}>
               <Icon name="delivery-dining" size={24} color="#FFFFFF" />
@@ -80,7 +82,8 @@ const DeliveryTrackingScreen: React.FC<DeliveryTrackingScreenProps> = ({navigati
           {/* Back Button */}
           <TouchableOpacity
             style={styles.backButton}
-            onPress={() => navigation.goBack()}>
+            onPress={() => navigation.goBack()}
+          >
             <Icon name="arrow-back" size={24} color="#374151" />
           </TouchableOpacity>
 
@@ -93,12 +96,16 @@ const DeliveryTrackingScreen: React.FC<DeliveryTrackingScreenProps> = ({navigati
         {/* Order Info Card */}
         <View style={styles.orderCard}>
           <View style={styles.orderHeader}>
-            <Text style={styles.orderStatus}>Order cannot be cancelled after 1 minute!</Text>
+            <Text style={styles.orderStatus}>
+              Order cannot be cancelled after 1 minute!
+            </Text>
           </View>
-          
+
           <View style={styles.orderDetails}>
             <Image
-              source={{uri: 'https://images.pexels.com/photos/315755/pexels-photo-315755.jpeg?auto=compress&cs=tinysrgb&w=400'}}
+              source={{
+                uri: 'https://images.pexels.com/photos/315755/pexels-photo-315755.jpeg?auto=compress&cs=tinysrgb&w=400',
+              }}
               style={styles.orderImage}
             />
             <View style={styles.orderInfo}>
@@ -116,16 +123,22 @@ const DeliveryTrackingScreen: React.FC<DeliveryTrackingScreenProps> = ({navigati
           <View style={styles.progressContainer}>
             {orderSteps.map((step, index) => (
               <View key={index} style={styles.progressStep}>
-                <View style={[
-                  styles.progressDot,
-                  step.completed && styles.progressDotCompleted
-                ]}>
-                  {step.completed && <Icon name="check" size={12} color="#FFFFFF" />}
+                <View
+                  style={[
+                    styles.progressDot,
+                    step.completed && styles.progressDotCompleted,
+                  ]}
+                >
+                  {step.completed && (
+                    <Icon name="check" size={12} color="#FFFFFF" />
+                  )}
                 </View>
-                <Text style={[
-                  styles.progressText,
-                  step.completed && styles.progressTextCompleted
-                ]}>
+                <Text
+                  style={[
+                    styles.progressText,
+                    step.completed && styles.progressTextCompleted,
+                  ]}
+                >
                   {step.title}
                 </Text>
               </View>
@@ -135,7 +148,9 @@ const DeliveryTrackingScreen: React.FC<DeliveryTrackingScreenProps> = ({navigati
           {/* Rider Info */}
           <View style={styles.riderInfo}>
             <Image
-              source={{uri: 'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=100'}}
+              source={{
+                uri: 'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=100',
+              }}
               style={styles.riderImage}
             />
             <View style={styles.riderDetails}>
@@ -146,9 +161,10 @@ const DeliveryTrackingScreen: React.FC<DeliveryTrackingScreenProps> = ({navigati
               <TouchableOpacity style={styles.riderActionButton}>
                 <Icon name="phone" size={20} color="#FFFFFF" />
               </TouchableOpacity>
-              <TouchableOpacity 
+              <TouchableOpacity
                 style={styles.riderActionButton}
-                onPress={() => navigation.navigate('ChatScreen')}>
+                onPress={() => navigation.navigate('ChatScreen')}
+              >
                 <Icon name="message" size={20} color="#FFFFFF" />
               </TouchableOpacity>
             </View>
@@ -192,10 +208,10 @@ const styles = StyleSheet.create({
     backgroundColor: '#000000',
     borderRadius: 1,
   },
-  bar1: {height: 4},
-  bar2: {height: 6},
-  bar3: {height: 8},
-  bar4: {height: 10},
+  bar1: { height: 4 },
+  bar2: { height: 6 },
+  bar3: { height: 8 },
+  bar4: { height: 10 },
   battery: {
     width: 24,
     height: 12,
@@ -229,7 +245,7 @@ const styles = StyleSheet.create({
     height: 4,
     backgroundColor: '#1E40AF',
     borderRadius: 2,
-    transform: [{rotate: '15deg'}],
+    transform: [{ rotate: '15deg' }],
   },
   locationMarker: {
     position: 'absolute',
@@ -262,7 +278,7 @@ const styles = StyleSheet.create({
   },
   backButton: {
     position: 'absolute',
-    top: 16,
+    top: 36,
     left: 16,
     width: 40,
     height: 40,
@@ -271,14 +287,14 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     shadowColor: '#000',
-    shadowOffset: {width: 0, height: 2},
+    shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.1,
     shadowRadius: 4,
     elevation: 3,
   },
   infoButton: {
     position: 'absolute',
-    top: 16,
+    top: 36,
     right: 16,
     width: 32,
     height: 32,
@@ -296,7 +312,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     paddingTop: 20,
     shadowColor: '#000',
-    shadowOffset: {width: 0, height: -2},
+    shadowOffset: { width: 0, height: -2 },
     shadowOpacity: 0.1,
     shadowRadius: 4,
     elevation: 5,

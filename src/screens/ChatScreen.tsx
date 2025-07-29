@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import {
   View,
   Text,
@@ -16,7 +16,7 @@ interface ChatScreenProps {
   navigation: any;
 }
 
-const ChatScreen: React.FC<ChatScreenProps> = ({navigation}) => {
+const ChatScreen: React.FC<ChatScreenProps> = ({ navigation }) => {
   const [message, setMessage] = useState('');
 
   const messages = [
@@ -55,9 +55,9 @@ const ChatScreen: React.FC<ChatScreenProps> = ({navigation}) => {
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar barStyle="dark-content" backgroundColor="#FFFFFF" />
-      
+
       {/* Status Bar */}
-      <View style={styles.statusBar}>
+      {/* <View style={styles.statusBar}>
         <Text style={styles.time}>9:41</Text>
         <View style={styles.statusIcons}>
           <View style={styles.signalBars}>
@@ -71,14 +71,15 @@ const ChatScreen: React.FC<ChatScreenProps> = ({navigation}) => {
             <View style={styles.batteryLevel} />
           </View>
         </View>
-      </View>
+      </View> */}
 
       <View style={styles.content}>
         {/* Header */}
         <View style={styles.header}>
           <TouchableOpacity
             style={styles.backButton}
-            onPress={() => navigation.goBack()}>
+            onPress={() => navigation.goBack()}
+          >
             <Icon name="arrow-back" size={24} color="#374151" />
           </TouchableOpacity>
           <View style={styles.headerInfo}>
@@ -90,26 +91,42 @@ const ChatScreen: React.FC<ChatScreenProps> = ({navigation}) => {
         </View>
 
         {/* Messages */}
-        <ScrollView style={styles.messagesContainer} showsVerticalScrollIndicator={false}>
-          {messages.map((msg) => (
-            <View key={msg.id} style={[
-              styles.messageContainer,
-              msg.sender === 'user' ? styles.userMessage : styles.riderMessage
-            ]}>
+        <ScrollView
+          style={styles.messagesContainer}
+          showsVerticalScrollIndicator={false}
+        >
+          {messages.map(msg => (
+            <View
+              key={msg.id}
+              style={[
+                styles.messageContainer,
+                msg.sender === 'user'
+                  ? styles.userMessage
+                  : styles.riderMessage,
+              ]}
+            >
               {msg.sender === 'rider' && (
                 <Image
-                  source={{uri: 'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=100'}}
+                  source={{
+                    uri: 'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=100',
+                  }}
                   style={styles.riderAvatar}
                 />
               )}
-              <View style={[
-                styles.messageBubble,
-                msg.sender === 'user' ? styles.userBubble : styles.riderBubble
-              ]}>
-                <Text style={[
-                  styles.messageText,
-                  msg.sender === 'user' ? styles.userText : styles.riderText
-                ]}>
+              <View
+                style={[
+                  styles.messageBubble,
+                  msg.sender === 'user'
+                    ? styles.userBubble
+                    : styles.riderBubble,
+                ]}
+              >
+                <Text
+                  style={[
+                    styles.messageText,
+                    msg.sender === 'user' ? styles.userText : styles.riderText,
+                  ]}
+                >
                   {msg.text}
                 </Text>
               </View>
@@ -128,7 +145,10 @@ const ChatScreen: React.FC<ChatScreenProps> = ({navigation}) => {
               onChangeText={setMessage}
               multiline
             />
-            <TouchableOpacity style={styles.sendButton}>
+            <TouchableOpacity
+              style={styles.sendButton}
+              onPress={() => navigation.navigate('AboutThisMenu')}
+            >
               <Icon name="send" size={20} color="#FFFFFF" />
             </TouchableOpacity>
           </View>
@@ -171,10 +191,10 @@ const styles = StyleSheet.create({
     backgroundColor: '#000000',
     borderRadius: 1,
   },
-  bar1: {height: 4},
-  bar2: {height: 6},
-  bar3: {height: 8},
-  bar4: {height: 10},
+  bar1: { height: 4 },
+  bar2: { height: 6 },
+  bar3: { height: 8 },
+  bar4: { height: 10 },
   battery: {
     width: 24,
     height: 12,
@@ -196,7 +216,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     paddingHorizontal: 20,
-    paddingVertical: 16,
+    paddingVertical: 36,
     borderBottomWidth: 1,
     borderBottomColor: '#E5E7EB',
   },
